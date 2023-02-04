@@ -6,7 +6,7 @@ import { RiVipDiamondFill } from "react-icons/ri";
 import { blue } from "@mui/material/colors";
 import AnimationChain from "../AnimationChain/AnimationChain";
 
-const Logo = ({ isAuthenticated }) => {
+const Logo = () => {
   return (
     <Box
       sx={{
@@ -21,13 +21,7 @@ const Logo = ({ isAuthenticated }) => {
         gap: "1rem",
       }}
     >
-      {isAuthenticated ? (
-        <AnimationChain
-          text={<RiVipDiamondFill size={35} color={blue[500]} />}
-        />
-      ) : (
-        <RiVipDiamondFill size={35} color={blue[500]} />
-      )}
+      <AnimationChain diamond={<RiVipDiamondFill size={35} color={blue[500]} />} />
 
       <Typography
         sx={{

@@ -1,19 +1,15 @@
 import { React, useState, useEffect } from "react";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 
 // components
 import TopSection from "./TopSection/TopSection";
-import LowerSection from "./LowerSection/LowerSection";
+//import LowerSection from "./LowerSection/LowerSection";
 
 const Landing = () => {
-  const [usersChange, setUsersChange] = useState(true);
-  const [allUserObjects, setAllUserObjects] = useState([]);
   const [cryptoData, setCryptoData] = useState([]);
 
   useEffect(() => {
-    setUsersChange(false);
-
     async function getCoinPrices(coins) {
       let data = [];
       for (const element of coins) {
@@ -36,7 +32,6 @@ const Landing = () => {
         );
       });
       setCryptoData(htmlArray);
-      console.log("CryptoData: ", cryptoData);
     };
 
     const fetchCoins = async () => {
@@ -45,12 +40,8 @@ const Landing = () => {
       createhtmlArray(data);
     };
     fetchCoins();
-  }, [usersChange]);
+  },[]);
 
-  // must be an array of divs for Carousel compatiblity
-  const users = allUserObjects.map((objects) => {
-    return <div>{objects}</div>;
-  });
 
   return (
     <Box
@@ -66,25 +57,21 @@ const Landing = () => {
         // text-shadow: 0.1em 0.1em 0.15em rgb(185, 242, 255)
         backgroundColor: "rgba(0, 0, 0, .4)"
       }}
-    >
-          
+    > 
         <Box
           sx={{
             position: "relative",
-            height: "50%",
+            height: "100%",
             width: "100%",
           }}
         >
           <TopSection
             data={cryptoData}
-            usersArray={users}
           />
         </Box>
-
-        <Box sx={{ position: "relative", height: "50%", width: "100%" }}>
+        {/* <Box sx={{ position: "relative", height: "50%", width: "100%" }}>
           <LowerSection />
-        </Box>
-     
+        </Box> */}
     </Box>
   );
 };

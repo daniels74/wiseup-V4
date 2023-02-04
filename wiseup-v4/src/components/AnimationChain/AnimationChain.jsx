@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import MovingText from 'react-moving-text'
  
 const AnimationsForChaining = ["fadeIn", "swing", "flipSlowDown", "fadeOutToBottom", "jelly"]
 
+
 const AnimationChain = (props) => {
- 
-  const [ animationIndex, setAnimationIndex ] = useState(0)
-  //setAnimationIndex(0);
-  const [ animationType, setAnimationType ] = useState(AnimationsForChaining[0])
+
+  const [ animationIndex, setAnimationIndex ] = useState(2)
+
+  useEffect(() => {
+    setAnimationIndex([2]);
+  }, [animationIndex]);
+
+  const [ animationType, setAnimationType ] = useState(AnimationsForChaining[animationIndex])
   // const [counter, setCounter] = ([]);
+
 
   const handleChainAnimation = () => {
     React.setCounter(animationIndex+1)
@@ -19,10 +25,10 @@ const AnimationChain = (props) => {
     <MovingText
       onAnimationEnd={handleChainAnimation}
       type={animationType}
-      duration="1000ms"
+      duration="6000ms"
       timing="linear"
       iteration="infinite">
-      {props.text}
+      {props.diamond}
     </MovingText>
   )
 }
