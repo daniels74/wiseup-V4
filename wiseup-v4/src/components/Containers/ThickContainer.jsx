@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box } from '@mui/material'
+import { blue } from "@mui/material/colors";
 //26324f
 const ThickContainer = () => {
   return (
@@ -20,6 +21,9 @@ const ThickContainer = () => {
         transform: "scale(1.05)",
         boxShadow: "0 2px 20px grey",
         // boxShadow: "0 2px 20px black",
+        borderStyle: "solid",
+        borderWidth: "thin",
+        borderColor: blue[500]
     }}>
 
     </Box>
