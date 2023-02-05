@@ -8,7 +8,7 @@ import TopSection from "./TopSection/TopSection";
 
 const Landing = () => {
   const [cryptoData, setCryptoData] = useState([]);
-
+  const [popularCryptoData, setPopularCryptoData] = useState();
   useEffect(() => {
     async function getCoinPrices(coins) {
       let data = [];
@@ -21,6 +21,28 @@ const Landing = () => {
       }
       return data;
     }
+
+    async function getCoinPrices2(coins) {
+      let data = [];
+      for (const element of coins) {
+        const d = await fetch(
+          `https://api.coingecko.com/api/v3/coins/${element}`
+        ).then((res) => res.json());
+        console.log(d);
+        data.push(d);
+      }
+      return data;
+    }
+
+    async function getPopularCoins() {
+      let trendingCoins = [];
+      trendingCoins = await fetch(
+        `https://api.coingecko.com/api/v3/search/trending`
+      ).then((res) => res.json())
+      console.log("trendingCoins: ", trendingCoins.coins);
+    return trendingCoins.coins;
+    }
+
     const coins = ["bitcoin", "ethereum", "tether", "dogecoin", "matic-network"];
 
     const createhtmlArray = (arr) => {
@@ -31,15 +53,36 @@ const Landing = () => {
           </div>
         );
       });
-      setCryptoData(htmlArray);
+      return htmlArray;
     };
 
     const fetchCoins = async () => {
       const data = await getCoinPrices(coins);
-      console.log("Coin Data: ", data);
-      createhtmlArray(data);
+      let htmlArray = createhtmlArray(data);
+      setCryptoData(htmlArray);
     };
+
+    async function getCoinUSDPrice(ids) {
+      const arrayOfObjects = await getCoinPrices(ids);
+      return arrayOfObjects;
+    }
+
+    const fetchPopularCoins = async () => {
+      const popularCoins = await getPopularCoins();
+      console.log("popularCoins: ", popularCoins);
+      let ids = popularCoins.map((coin) => {
+        return (
+          coin.item.id
+        );
+      })
+      console.log("ids: ", ids);
+      const prices = await getCoinUSDPrice(ids);
+      console.log("Prices: ", prices);
+      setPopularCryptoData(prices);
+    }
+
     fetchCoins();
+    fetchPopularCoins();
   },[]);
 
 
@@ -67,6 +110,7 @@ const Landing = () => {
         >
           <TopSection
             data={cryptoData}
+            mostPopularCryptoBar={popularCryptoData}
           />
         </Box>
         {/* <Box sx={{ position: "relative", height: "50%", width: "100%" }}>

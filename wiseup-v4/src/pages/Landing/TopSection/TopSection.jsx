@@ -11,7 +11,7 @@ import TopCryptoStats from "../../../components/Containers/ThinContainer"
 import CryptoNews from "../../../components/Containers/ThickContainer"
 // import UsersCarousel from "../../../components/AliceCarousels/Carousel";
 
-const TopSection = ({ data }) => {
+const TopSection = ({ data, mostPopularCryptoBar }) => {
 
   const MarqueeImages_LargeScreen = [
     { id: 1, img: "./logo192.png" },
@@ -100,7 +100,7 @@ const TopSection = ({ data }) => {
             //backgroundColor: "red",
           }}
         >
-          <TopCryptoStats />
+          <TopCryptoStats mostPopularCryptoBar={mostPopularCryptoBar} />
         </Box>
         <Box
         sx={{

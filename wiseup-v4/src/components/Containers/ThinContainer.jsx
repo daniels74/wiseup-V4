@@ -2,7 +2,21 @@ import React from 'react'
 import { Box } from '@mui/material'
 import { blue } from "@mui/material/colors";
 //26324f
-const ThinContainer = () => {
+import Card from "./Card"
+
+const ThinContainer = ({mostPopularCryptoBar}) => {
+
+  const CryptoBarData = mostPopularCryptoBar.map((item) => {
+    return (
+      <Card
+        key={item.id}
+        price={item.market_data.current_price.usd}
+        name={item.name}
+        {...item}
+      />
+    )
+  })
+
   return (
     <Box
     sx={{
@@ -25,7 +39,17 @@ const ThinContainer = () => {
         borderWidth: "thin",
         borderColor: blue[500]
     }}>
-
+      <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(12rem,16rem))",
+        gap: "2rem",
+        justifyContent: "center",
+        position: "relative",
+        top: "2vh"
+      }}>
+        {CryptoBarData}
+      </Box>
     </Box>
   )
 }
