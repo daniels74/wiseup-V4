@@ -9,20 +9,9 @@ import TopSection from "./TopSection/TopSection";
 const Landing = () => {
   const [cryptoData, setCryptoData] = useState([]);
   const [popularCryptoData, setPopularCryptoData] = useState();
+  
   useEffect(() => {
     async function getCoinPrices(coins) {
-      let data = [];
-      for (const element of coins) {
-        const d = await fetch(
-          `https://api.coingecko.com/api/v3/coins/${element}`
-        ).then((res) => res.json());
-        console.log(d);
-        data.push(d);
-      }
-      return data;
-    }
-
-    async function getCoinPrices2(coins) {
       let data = [];
       for (const element of coins) {
         const d = await fetch(

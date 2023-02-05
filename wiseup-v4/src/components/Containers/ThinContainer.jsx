@@ -6,16 +6,16 @@ import Card from "./Card"
 
 const ThinContainer = ({mostPopularCryptoBar}) => {
 
-  const CryptoBarData = mostPopularCryptoBar.map((item) => {
-    return (
-      <Card
-        key={item.id}
-        price={item.market_data.current_price.usd}
-        name={item.name}
-        {...item}
-      />
-    )
-  })
+  // const CryptoBarData = mostPopularCryptoBar.map((item) => {
+  //   return (
+  //     <Card
+        
+  //       price={item.market_data.current_price.usd}
+  //       name={item.name}
+        
+  //     />
+  //   )
+  // })
 
   return (
     <Box
@@ -39,17 +39,15 @@ const ThinContainer = ({mostPopularCryptoBar}) => {
         borderWidth: "thin",
         borderColor: blue[500]
     }}>
-      <Box
+      {/* <Box
       sx={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(12rem,16rem))",
-        gap: "2rem",
-        justifyContent: "center",
         position: "relative",
-        top: "2vh"
+        display: "flex",
+        flexDirection: "row",
+
       }}>
-        {CryptoBarData}
-      </Box>
+        {mostPopularCryptoBar ? {CryptoBarData} : "Loading"}
+      </Box> */}
     </Box>
   )
 }
