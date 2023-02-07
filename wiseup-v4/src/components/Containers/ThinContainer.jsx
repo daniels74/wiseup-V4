@@ -6,21 +6,22 @@ import Card from "./Card"
 
 const ThinContainer = ({mostPopularCryptoBar}) => {
 
-  // const CryptoBarData = mostPopularCryptoBar.map((item) => {
-  //   return (
-  //     <Card
+  const CryptoBarData = mostPopularCryptoBar.map((item, i) => {
+    return (
+      <Card
         
-  //       price={item.market_data.current_price.usd}
-  //       name={item.name}
+        price={item.market_data.current_price.usd}
+        name={item.name}
+        i={i}
         
-  //     />
-  //   )
-  // })
+      />
+    )
+  })
 
   return (
     <Box
     sx={{
-        height: "50%",
+        height: "70%",
         width: "90%",
         position: "absolute",
         top: "0",
@@ -48,6 +49,65 @@ const ThinContainer = ({mostPopularCryptoBar}) => {
       }}>
         {mostPopularCryptoBar ? {CryptoBarData} : "Loading"}
       </Box> */}
+      <Box 
+      sx={{
+        position: "relative",
+        height: "100%",
+        width: "100%",
+        
+        display: "grid",
+        gridTemplateColumns: "repeat(4, 20%)",
+        gridTemplateRows: "repeate(2, 2rem)",
+        gridRowGap: ".2rem",
+        gridColumnGap: "4rem"
+      }}>
+
+        {CryptoBarData}
+        {/* <Box
+        sx={{
+          gridRowStart: "1",
+          gridRowEnd: "3",
+          backgroundColor: "blue",
+        }}>
+          Ethereum : $1600
+        </Box>
+        <Box
+        sx={{
+          backgroundColor: "green",
+        }}>
+          Ethereum : $1600
+        </Box>
+        <Box
+        sx={{
+          backgroundColor: "yellow",
+        }}>
+          Ethereum : $1600
+        </Box>
+        <Box
+        sx={{
+          backgroundColor: "red",
+        }}>
+          Ethereum : $1600
+        </Box>
+        <Box
+        sx={{
+          backgroundColor: "green",
+        }}>
+          Ethereum : $1600
+        </Box>
+        <Box
+        sx={{
+          backgroundColor: "yellow",
+        }}>
+          Ethereum : $1600
+        </Box>
+        <Box
+        sx={{
+          backgroundColor: "red",
+        }}>
+          Ethereum : $1600
+        </Box> */}
+      </Box>
     </Box>
   )
 }

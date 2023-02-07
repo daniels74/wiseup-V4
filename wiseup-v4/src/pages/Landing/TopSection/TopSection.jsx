@@ -92,7 +92,7 @@ const TopSection = ({ data, mostPopularCryptoBar }) => {
           sx={{
             position: "relative",
             zIndex: "1",
-            height: "20%",
+            height: "30%",
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
@@ -106,7 +106,7 @@ const TopSection = ({ data, mostPopularCryptoBar }) => {
         sx={{
           position: "relative",
           zIndex: "1",
-          height: "80%",
+          height: "60%",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
