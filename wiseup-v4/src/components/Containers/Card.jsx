@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import { blue, green } from "@mui/material/colors";
+import { blue, green, yellow } from "@mui/material/colors";
 
 const Card = ({ key, price, name, i }) => {
   {
@@ -22,9 +22,13 @@ const Card = ({ key, price, name, i }) => {
             top: "4rem",
             left: "2.5rem",
             borderRadius: "1rem",
-            backgroundColor: green[700],
+            backgroundColor: green[800],
             color: "black",
             fontSize: "1.2rem",
+            borderStyle: "solid",
+            borderWidth: "thin",
+            borderColor: blue[500],
+            boxShadow: "0 2px 20px white",
           }}
         >
           <Box>{name}</Box>
@@ -36,8 +40,12 @@ const Card = ({ key, price, name, i }) => {
         <Box
           key={key}
           sx={{
-            backgroundColor: green[700],
+            backgroundColor: green[800],
             color: "black",
+            borderStyle: "solid",
+            borderWidth: "thin",
+            borderColor: green[500],
+            boxShadow: "0 2px 20px green",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",

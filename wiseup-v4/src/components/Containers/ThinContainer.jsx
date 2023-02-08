@@ -36,21 +36,11 @@ const ThinContainer = ({ mostPopularCryptoBar }) => {
         borderColor: blue[500],
       }}
     >
-      {/* <Box
-      sx={{
-        position: "relative",
-        display: "flex",
-        flexDirection: "row",
-
-      }}>
-        {mostPopularCryptoBar ? {CryptoBarData} : "Loading"}
-      </Box> */}
       <Box
         sx={{
           position: "relative",
           height: "100%",
           width: "100%",
-
           display: "grid",
           gridTemplateColumns: "repeat(4, 20%)",
           gridTemplateRows: "repeate(2, 2rem)",
@@ -58,52 +48,8 @@ const ThinContainer = ({ mostPopularCryptoBar }) => {
           gridColumnGap: "4rem",
         }}
       >
-        {/* {console.log("ThinContainer mostPopularCryptoBar: ", mostPopularCryptoBar)} */}
         {mostPopularCryptoBar && CryptoBarData}
-        {/* <Box
-        sx={{
-          gridRowStart: "1",
-          gridRowEnd: "3",
-          backgroundColor: "blue",
-        }}>
-          Ethereum : $1600
-        </Box>
-        <Box
-        sx={{
-          backgroundColor: "green",
-        }}>
-          Ethereum : $1600
-        </Box>
-        <Box
-        sx={{
-          backgroundColor: "yellow",
-        }}>
-          Ethereum : $1600
-        </Box>
-        <Box
-        sx={{
-          backgroundColor: "red",
-        }}>
-          Ethereum : $1600
-        </Box>
-        <Box
-        sx={{
-          backgroundColor: "green",
-        }}>
-          Ethereum : $1600
-        </Box>
-        <Box
-        sx={{
-          backgroundColor: "yellow",
-        }}>
-          Ethereum : $1600
-        </Box>
-        <Box
-        sx={{
-          backgroundColor: "red",
-        }}>
-          Ethereum : $1600
-        </Box> */}
+ 
       </Box>
     </Box>
   );
