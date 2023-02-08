@@ -17,7 +17,7 @@ const Landing = () => {
         const d = await fetch(
           `https://api.coingecko.com/api/v3/coins/${element}`
         ).then((res) => res.json());
-        console.log(d);
+        // console.log(d);
         data.push(d);
       }
       return data;
@@ -28,7 +28,7 @@ const Landing = () => {
       trendingCoins = await fetch(
         `https://api.coingecko.com/api/v3/search/trending`
       ).then((res) => res.json())
-      console.log("trendingCoins: ", trendingCoins.coins);
+      // console.log("trendingCoins: ", trendingCoins.coins);
     return trendingCoins.coins;
     }
 
@@ -58,15 +58,15 @@ const Landing = () => {
 
     const fetchPopularCoins = async () => {
       const popularCoins = await getPopularCoins();
-      console.log("popularCoins: ", popularCoins);
+      // console.log("popularCoins: ", popularCoins);
       let ids = popularCoins.map((coin) => {
         return (
           coin.item.id
         );
       })
-      console.log("ids: ", ids);
+      // console.log("ids: ", ids);
       const prices = await getCoinUSDPrice(ids);
-      console.log("Prices: ", prices);
+      // console.log("Prices: ", prices);
       setPopularCryptoData(prices);
     }
 

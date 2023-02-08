@@ -10,7 +10,7 @@ const AnimationChain = (props) => {
 
   useEffect(() => {
     setAnimationIndex([2]);
-  }, [animationIndex]);
+  }, []);
 
   const [ animationType, setAnimationType ] = useState(AnimationsForChaining[animationIndex])
   // const [counter, setCounter] = ([]);

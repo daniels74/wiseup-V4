@@ -88,7 +88,7 @@ const TopSection = ({ data, mostPopularCryptoBar }) => {
         <FloatingInfoBar data={data} />
       </Box>
 
-        <Box
+        {mostPopularCryptoBar && <Box
           sx={{
             position: "relative",
             zIndex: "1",
@@ -101,7 +101,8 @@ const TopSection = ({ data, mostPopularCryptoBar }) => {
           }}
         >
           <TopCryptoStats mostPopularCryptoBar={mostPopularCryptoBar} />
-        </Box>
+        </Box>}
+
         <Box
         sx={{
           position: "relative",

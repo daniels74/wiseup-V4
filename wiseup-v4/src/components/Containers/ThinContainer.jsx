@@ -1,26 +1,21 @@
-import React from 'react'
-import { Box } from '@mui/material'
+import React, { useEffect, useState } from "react";
+import { Box } from "@mui/material";
 import { blue } from "@mui/material/colors";
 //26324f
-import Card from "./Card"
+import Card from "./Card";
 
-const ThinContainer = ({mostPopularCryptoBar}) => {
+const ThinContainer = ({ mostPopularCryptoBar }) => {
+ 
 
   const CryptoBarData = mostPopularCryptoBar.map((item, i) => {
     return (
-      <Card
-        
-        price={item.market_data.current_price.usd}
-        name={item.name}
-        i={i}
-        
-      />
-    )
-  })
+      <Card key={i} price={item.market_data.current_price.usd} name={item.name} i={i} />
+    );
+  });
 
   return (
     <Box
-    sx={{
+      sx={{
         height: "70%",
         width: "90%",
         position: "absolute",
@@ -38,8 +33,9 @@ const ThinContainer = ({mostPopularCryptoBar}) => {
         // boxShadow: "0 2px 20px black",
         borderStyle: "solid",
         borderWidth: "thin",
-        borderColor: blue[500]
-    }}>
+        borderColor: blue[500],
+      }}
+    >
       {/* <Box
       sx={{
         position: "relative",
@@ -49,20 +45,21 @@ const ThinContainer = ({mostPopularCryptoBar}) => {
       }}>
         {mostPopularCryptoBar ? {CryptoBarData} : "Loading"}
       </Box> */}
-      <Box 
-      sx={{
-        position: "relative",
-        height: "100%",
-        width: "100%",
-        
-        display: "grid",
-        gridTemplateColumns: "repeat(4, 20%)",
-        gridTemplateRows: "repeate(2, 2rem)",
-        gridRowGap: ".2rem",
-        gridColumnGap: "4rem"
-      }}>
+      <Box
+        sx={{
+          position: "relative",
+          height: "100%",
+          width: "100%",
 
-        {CryptoBarData}
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 20%)",
+          gridTemplateRows: "repeate(2, 2rem)",
+          gridRowGap: ".2rem",
+          gridColumnGap: "4rem",
+        }}
+      >
+        {/* {console.log("ThinContainer mostPopularCryptoBar: ", mostPopularCryptoBar)} */}
+        {mostPopularCryptoBar && CryptoBarData}
         {/* <Box
         sx={{
           gridRowStart: "1",
@@ -109,7 +106,7 @@ const ThinContainer = ({mostPopularCryptoBar}) => {
         </Box> */}
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default ThinContainer
+export default ThinContainer;
