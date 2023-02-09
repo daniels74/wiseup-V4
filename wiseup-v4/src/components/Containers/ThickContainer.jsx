@@ -25,7 +25,43 @@ const ThickContainer = () => {
         borderWidth: "thin",
         borderColor: blue[500]
     }}>
+      <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "repeat(4, 25%)",
+        gridTemplateRows: "repeat(auto, 35%)",
+        backgroundColor: "darkblue",
+        gridRowGap: "5rem"
 
+      }}>
+        <Box>
+          Picure
+        </Box>
+        <Box
+        sx={{
+          gridColumnStart: "2",
+          gridColumnEnd: "5",
+          gridRowStart: "auto",
+          gridRowEnd: "auto",
+        }}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit et laboriosam animi debitis nobis, eos aliquam facilis blanditiis sequi, est iure tempore recusandae eveniet consequatur necessitatibus atque dolorem quo adipisci!
+        </Box>
+        <Box>
+          Picure
+        </Box>
+        <Box
+        sx={{
+          gridColumnStart: "2",
+          gridColumnEnd: "5",
+          gridRowStart: "auto",
+          gridRowEnd: "auto",
+        }}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit et laboriosam animi debitis nobis, eos aliquam facilis blanditiis sequi, est iure tempore recusandae eveniet consequatur necessitatibus atque dolorem quo adipisci!
+        </Box>
+      </Box>
+
+        
+       
     </Box>
   )
 }
