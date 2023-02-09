@@ -44,8 +44,8 @@ const ThinContainer = ({ mostPopularCryptoBar }) => {
           display: "grid",
           gridTemplateColumns: "repeat(4, 20%)",
           gridTemplateRows: "repeate(2, 2rem)",
-          gridRowGap: ".2rem",
-          gridColumnGap: "4rem",
+          gridRowGap: {xs: ".2rem", lg:".2rem"},
+          gridColumnGap: {xs: "0rem", lg: "4rem"},
         }}
       >
         {mostPopularCryptoBar && CryptoBarData}
