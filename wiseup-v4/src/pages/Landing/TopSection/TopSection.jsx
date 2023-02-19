@@ -7,12 +7,12 @@ import { Box } from "@mui/material";
 //------------Components------------------
 import DiamondsMarquee from "../../../components/Marquee/Diamonds/DiamondsMarquee";
 import FloatingInfoBar from "../../../components/AliceCarousels/FloatingInfoBar";
-import TopCryptoStats from "../../../components/Containers/ThinContainer"
-import CryptoNews from "../../../components/Containers/ThickContainer"
+import TopCryptoStats from "../../../components/Containers/ThinContainer";
+import CryptoNews from "../../../components/Containers/ThickContainer";
+import TopeTrending_Container from "../../../components/Containers/TitleContainers/TopeTrending_Container";
 // import UsersCarousel from "../../../components/AliceCarousels/Carousel";
 
 const TopSection = ({ data, mostPopularCryptoBar }) => {
-
   const MarqueeImages_LargeScreen = [
     { id: 1, img: "./logo192.png" },
     { id: 2, img: "./logo192.png" },
@@ -47,63 +47,103 @@ const TopSection = ({ data, mostPopularCryptoBar }) => {
         flexDirection: "column",
       }}
     >
+      {/* DiamondsMarquee */}
       <Box
         sx={{
           position: "absolute",
           height: "100%",
           width: "100%",
           zIndex: "0",
-          display: {xs: "none", md: "flex"},
+          display: { xs: "none", md: "flex" },
           flexDirection: "row",
           alignItems: "center",
-          justifyContent: "center"
+          justifyContent: "center",
         }}
       >
-        <DiamondsMarquee array={MarqueeImages_LargeScreen}/>
-      </Box>
-      
-      <Box
-        sx={{
-          position: "absolute",
-          height: "100%",
-          width: "100%",
-          zIndex: "0",
-          display: {xs: "flex", md: "none"},
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center"
-        }}
-      >
-        <DiamondsMarquee array={MarqueeImages_SmallScreen}/>
+        <DiamondsMarquee array={MarqueeImages_LargeScreen} />
       </Box>
 
+      {/* DiamondsMarquee */}
+      <Box
+        sx={{
+          position: "absolute",
+          height: "100%",
+          width: "100%",
+          zIndex: "0",
+          display: { xs: "flex", md: "none" },
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <DiamondsMarquee array={MarqueeImages_SmallScreen} />
+      </Box>
+
+      {/* FloatitingInfoBar */}
       <Box
         sx={{
           position: "relative",
           zIndex: "1",
-          height: "10%",
-          //backgroundColor: "green",
+          height: "1.5%",
         }}
       >
         <FloatingInfoBar data={data} />
       </Box>
 
-        {mostPopularCryptoBar && <Box
+        <Box
+         sx={{
+          position: "relative",
+          height: "100%",
+          width: "100",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-around",
+        }}>
+
+        
+      <Box
+        sx={{
+          zIndex: "1",
+          position: "relative",
+          height: "30%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-around",
+        }}
+      >
+        <Box
           sx={{
             position: "relative",
-            zIndex: "1",
-            height: "30%",
+            zIndex: "2",
+            height: "15%",
+            width: "25%",
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
-            justifyContent: "center",
-            //backgroundColor: "red",
+            justifyContent: "left",
+            left: "2.5rem",
           }}
         >
-          <TopCryptoStats mostPopularCryptoBar={mostPopularCryptoBar} />
-        </Box>}
+          <TopeTrending_Container />
+        </Box>
 
-        <Box
+        {mostPopularCryptoBar && (
+          <Box
+            sx={{
+              position: "relative",
+              zIndex: "1",
+              height: "75%",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <TopCryptoStats mostPopularCryptoBar={mostPopularCryptoBar} />
+          </Box>
+        )}
+      </Box>
+      <Box
         sx={{
           position: "relative",
           zIndex: "1",
@@ -113,9 +153,12 @@ const TopSection = ({ data, mostPopularCryptoBar }) => {
           alignItems: "center",
           justifyContent: "center",
           //backgroundColor: "blue",
-        }}>
-         <CryptoNews />
-        </Box>  
+        }}
+      >
+        <CryptoNews />
+      </Box>
+      </Box>
+
     </Box>
   );
 };

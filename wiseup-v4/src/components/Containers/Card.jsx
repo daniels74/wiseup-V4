@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import { blue, green, yellow } from "@mui/material/colors";
 
-const Card = ({ key, price, name, i }) => {
+const Card = ({ key, price, name, i, thepic }) => {
   {
     if (i === 0) {
       return (
@@ -19,20 +19,37 @@ const Card = ({ key, price, name, i }) => {
             position: "relative",
             height: "60%",
             width: "80%",
-            top: {xs: "2rem", lg: "4rem"},
+            top: { xs: "2rem", md: "4rem", lg: "4rem" },
             left: "2.5rem",
             borderRadius: "1rem",
-            backgroundColor: green[800],
-            color: "black",
-            fontSize: {xs: ".8rem", lg: "1.2rem"},
+            backgroundColor: "#266639",
+            color: "lightblue",
+            fontSize: { xs: ".8rem", lg: "1.2rem" },
             borderStyle: "solid",
             borderWidth: "thin",
             borderColor: blue[500],
             boxShadow: "0 2px 20px white",
           }}
         >
-          <Box>{name}</Box>
-          <Box>{price}</Box>
+          <Box
+            sx={{
+              height: "100%",
+              width: "100%",
+              borderRadius: "1rem",
+              background: "rgb(9,42,12)",
+              background:
+                "radial-gradient(circle, rgba(9,42,12,1) 0%, rgba(7,22,34,1) 100%)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "1rem"
+            }}
+          >
+            <Box component="img" height="40%" src={thepic}></Box>
+            <Box>{name}</Box>
+            <Box>${price}</Box>
+          </Box>
         </Box>
       );
     } else {
@@ -40,11 +57,11 @@ const Card = ({ key, price, name, i }) => {
         <Box
           key={key}
           sx={{
-            backgroundColor: green[800],
-            color: "black",
+            backgroundColor: "#266639",
+            color: "lightblue",
             borderStyle: "solid",
             borderWidth: "thin",
-            borderColor: green[500],
+            borderColor: "#40965a",
             boxShadow: "0 2px 20px green",
             display: "flex",
             flexDirection: "column",
@@ -54,14 +71,30 @@ const Card = ({ key, price, name, i }) => {
             maxWidth: "95%",
             minHeight: "60%",
             position: "relative",
-            top: {xs: "1rem", lg: "2rem"},
-            left: {xs: "3rem", lg: "0rem"},
+            top: { xs: "1rem", md: "2rem", lg: "2rem" },
+            left: { xs: "3rem", lg: "0rem" },
             borderRadius: "1rem",
-            fontSize: {xs: ".8rem", lg: "1.2rem"},
+            fontSize: { xs: ".8rem", lg: "1.2rem" },
           }}
         >
-          <Box>{name}</Box>
-          <Box>{price}</Box>
+          <Box
+            sx={{
+              height: "100%",
+              width: "100%",
+              borderRadius: "1rem",
+              background: "rgb(9,42,12)",
+              background:
+                "radial-gradient(circle, rgba(9,42,12,1) 0%, rgba(7,22,34,1) 100%)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Box component="img" src={thepic}></Box>
+            <Box>{name}</Box>
+            <Box>${price}</Box>
+          </Box>
         </Box>
       );
     }

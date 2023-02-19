@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Box } from "@mui/material";
 import { blue } from "@mui/material/colors";
-//26324f
-import Card from "./Card";
 
-const ThinContainer = ({ mostPopularCryptoBar }) => {
- 
-
-  const CryptoBarData = mostPopularCryptoBar.map((item, i) => {
-    console.log("item: ", item);
-    return (
-      <Card key={i} price={item.market_data.current_price.usd} name={item.name} thepic={item.image.small} i={i} />
-    );
-  });
-
+const TopeTrending_Container = () => {
   return (
     <Box
       sx={{
         height: "100%",
-        width: "90%",
+        width: "100%",
         position: "absolute",
         top: "0",
         overflow: "hidden",
@@ -37,25 +26,22 @@ const ThinContainer = ({ mostPopularCryptoBar }) => {
         borderStyle: "solid",
         borderWidth: "thin",
         borderColor: blue[500],
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <Box
+        component="h1"
         sx={{
-          position: "relative",
-          height: "100%",
-          width: "100%",
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 20%)",
-          gridTemplateRows: "repeate(2, 2rem)",
-          gridRowGap: ".2rem",
-          gridColumnGap: {xs: "0rem",md: "2rem", lg: "4rem"},
+          color: "lightblue",
         }}
       >
-        {mostPopularCryptoBar && CryptoBarData}
- 
+        Top Trending 7
       </Box>
     </Box>
   );
 };
 
-export default ThinContainer;
+export default TopeTrending_Container;

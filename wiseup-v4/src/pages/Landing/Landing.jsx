@@ -28,7 +28,7 @@ const Landing = () => {
       trendingCoins = await fetch(
         `https://api.coingecko.com/api/v3/search/trending`
       ).then((res) => res.json())
-      // console.log("trendingCoins: ", trendingCoins.coins);
+      console.log("trendingCoins: ", trendingCoins.coins);
     return trendingCoins.coins;
     }
 
