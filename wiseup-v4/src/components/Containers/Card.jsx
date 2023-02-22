@@ -18,9 +18,9 @@ const Card = ({ key, price, name, i, thepic }) => {
             justifyContent: "center",
             position: "relative",
             height: "60%",
-            width: "80%",
+            width: "auto",
             top: { xs: "2rem", md: "4rem", lg: "4rem" },
-            left: "2.5rem",
+            left: { xs: ".2rem", md: "1rem" },
             borderRadius: "1rem",
             backgroundColor: "#266639",
             color: "lightblue",
@@ -43,7 +43,7 @@ const Card = ({ key, price, name, i, thepic }) => {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "1rem"
+              fontSize: "1rem",
             }}
           >
             <Box component="img" height="40%" src={thepic}></Box>
@@ -67,12 +67,13 @@ const Card = ({ key, price, name, i, thepic }) => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            maxHeight: "60%",
-            maxWidth: "95%",
-            minHeight: "60%",
+            height: "auto",
+            width: "100%",
+            minHeight: "80%",
+
             position: "relative",
-            top: { xs: "1rem", md: "2rem", lg: "2rem" },
-            left: { xs: "3rem", lg: "0rem" },
+            top: { xs: ".5rem", md: "8%", lg: "2rem" },
+            left: { xs: ".3rem", md: ".5rem" },
             borderRadius: "1rem",
             fontSize: { xs: ".8rem", lg: "1.2rem" },
           }}
@@ -91,7 +92,11 @@ const Card = ({ key, price, name, i, thepic }) => {
               justifyContent: "center",
             }}
           >
-            <Box component="img" src={thepic}></Box>
+            <Box
+              component="img"
+              height={{ xs: "1.5rem", md: "4rem" }}
+              src={thepic}
+            ></Box>
             <Box>{name}</Box>
             <Box>${price}</Box>
           </Box>

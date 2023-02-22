@@ -116,7 +116,7 @@ const TopSection = ({ data, mostPopularCryptoBar }) => {
             position: "relative",
             zIndex: "2",
             height: "15%",
-            width: "25%",
+            width: {xs: "80%", md: "25%"},
             display: "flex",
             flexDirection: "row",
             alignItems: "center",

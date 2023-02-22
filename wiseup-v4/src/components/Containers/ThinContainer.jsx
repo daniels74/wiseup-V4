@@ -45,10 +45,10 @@ const ThinContainer = ({ mostPopularCryptoBar }) => {
           height: "100%",
           width: "100%",
           display: "grid",
-          gridTemplateColumns: "repeat(4, 20%)",
-          gridTemplateRows: "repeate(2, 2rem)",
-          gridRowGap: ".2rem",
-          gridColumnGap: {xs: "0rem",md: "2rem", lg: "4rem"},
+          gridTemplateColumns: {xs: "repeat(4, 23%)", md: "repeat(4, 22%)"},
+          gridTemplateRows: "repeat(2, 45%)",
+          gridRowGap: {xs: ".2rem", md: ".5rem"},
+          gridColumnGap: {xs: ".3rem",md: "2rem", lg: "4rem"},
         }}
       >
         {mostPopularCryptoBar && CryptoBarData}
